@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*
+    This is a comment
+    On multiple lines
+*@
+
+@{ 
+    var className = Model.Customers.Count > 0 ? "popular" : null;
+}
+
+<h2 class="@className">Customers</h2>
+@if (Model.Customers.Count == 0)
+{
+    <text>We don't have any customers yet.</text>
+}
+else
+{   
+    
+    <table class="table table-striped">
+    <tr><th>Customer</th></tr>
+    <tr>
+        <th>Customer</th>
+        <th>Membership Type</th>
+    </tr>        
+
+            @foreach (var customer in Model.Customers)
+            {
+    <tr>
+        <td><a href="Customers/Edit/@customer.id">@customer.Name</a></td>
+        @*<td>@Html.ActionLink(customer.Name, "Edit", "Customers", new {id = customer.id}, null)</td>*@
+        <td>@customer.MembershipType.Name</td>
+    </tr>
+                
+            }
+        
+    </table>
+}

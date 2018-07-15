@@ -1,0 +1,30 @@
+namespace Vidly.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class AddGenre1 : DbMigration
+    {
+        public override void Up()
+        {
+            CreateTable(
+                   "dbo.Genre",
+                   c => new
+                   {
+                       Id = c.Int(nullable: false, identity: true),
+                       Name = c.String(),
+                       Genre_Name = c.String(),
+                       ReleaseDate = c.DateTime(nullable: false),
+                       DateAdded = c.DateTime(nullable: false),
+                       NumberinStock = c.Int(nullable: false),
+                   })
+                   .PrimaryKey(t => t.Id);
+
+        }
+
+        public override void Down()
+        {
+            DropTable("dbo.Movies");
+        }
+    }
+}

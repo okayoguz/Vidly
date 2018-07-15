@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Movies</h2>
+<a href="Movies/New" class="btn btn-primary">New Movie</a>
+
+
+    <table class="table table-striped">
+        <tr>
+            <th>Movies</th>
+            <th>Genre</th>
+        </tr>
+
+
+        @foreach (var movie in Model.Movie)
+        {
+            <tr>
+                <td><a href="Movies/Details/@movie.Id">@movie.Name</a></td>
+                <td>@movie.Genre_Id</td>
+            </tr>
+
+        }
+
+    </table>
+
+
+
